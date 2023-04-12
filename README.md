@@ -9,6 +9,7 @@ Clonez ce repository sur votre ordinateur.
 Dans le dossier du projet, ouvrez une console et exécutez 
 ```bash
   npm install 
+```
 # Launch
 Pour lancer le projet en mode développement, exécutez 
 ```bash 
