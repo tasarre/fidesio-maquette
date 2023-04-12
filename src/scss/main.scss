@@ -932,8 +932,8 @@ $grid-gutter: 20px;
 }
 
 .conseil {
-  background: #F5F4F2;
-  padding: 114px 154px 0 63px; 
+  background: #f5f4f2;
+  padding: 114px 154px 0 63px;
   .collapse-content {
     width: 100%;
     margin: auto;
@@ -951,7 +951,6 @@ $grid-gutter: 20px;
 
   .collapse {
     color: $white;
-
 
     &.active {
       border-radius: 10px 10px 0 0;
@@ -973,8 +972,7 @@ $grid-gutter: 20px;
     }
   }
 
-
-  .collapse.active a:before {
+  .collapse:target a:before {
     content: "\f061";
     display: flex;
     align-items: center;
@@ -991,9 +989,23 @@ $grid-gutter: 20px;
     color: $black;
     border-radius: 50%;
     transform: rotate(-45deg);
-    z-index: 1;
+    transform-origin: 50% 50%;
+  }
+  .collapse:target a:before {
+    animation-name: rotate-icon;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
   }
 
+  @keyframes rotate-icon {
+    0% {
+      transform: rotate(-45deg);
+    }
+
+    100% {
+      transform: rotate(-90deg);
+    }
+  }
   .inner-content {
     padding: 1.8rem;
 
@@ -1025,11 +1037,6 @@ $grid-gutter: 20px;
 
   .collapse:target .content {
     max-height: 22em;
-
-  }
-
-  .collapse:target a:before {
-    transform: rotate(-90deg);
   }
 
   @media (max-width: 768px) {

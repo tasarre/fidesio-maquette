@@ -1253,7 +1253,7 @@ body {
 }
 
 .conseil {
-  background: #F5F4F2;
+  background: #f5f4f2;
   padding: 114px 154px 0 63px;
 }
 .conseil .collapse-content {
@@ -1290,7 +1290,7 @@ body {
 .conseil .collapse.number_4 {
   background: #EA6419;
 }
-.conseil .collapse.active a:before {
+.conseil .collapse:target a:before {
   content: "\f061";
   display: flex;
   align-items: center;
@@ -1307,7 +1307,20 @@ body {
   color: #000000;
   border-radius: 50%;
   transform: rotate(-45deg);
-  z-index: 1;
+  transform-origin: 50% 50%;
+}
+.conseil .collapse:target a:before {
+  animation-name: rotate-icon;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes rotate-icon {
+  0% {
+    transform: rotate(-45deg);
+  }
+  100% {
+    transform: rotate(-90deg);
+  }
 }
 .conseil .inner-content {
   padding: 1.8rem;
@@ -1336,9 +1349,6 @@ body {
 }
 .conseil .collapse:target .content {
   max-height: 22em;
-}
-.conseil .collapse:target a:before {
-  transform: rotate(-90deg);
 }
 @media (max-width: 768px) {
   .conseil .collapse-content {
